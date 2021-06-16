@@ -177,12 +177,7 @@ foreach(FILE_WITH_EXTRA_TARGETS ${FILES_WITH_EXTRA_TARGETS})
     include(${FILE_WITH_EXTRA_TARGETS})
 endforeach()
 
-set(TBB_COMPILER_SETTINGS_FILE ${CMAKE_CURRENT_SOURCE_DIR}/cmake/compilers/${CMAKE_CXX_COMPILER_ID}.cmake)
-if (EXISTS ${TBB_COMPILER_SETTINGS_FILE})
-    include(${TBB_COMPILER_SETTINGS_FILE})
-else()
-    message(WARNING "TBB compiler settings not found ${TBB_COMPILER_SETTINGS_FILE}")
-endif()
+include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/compilers/common.cmake)
 
 if (TBB_FIND_PACKAGE OR TBB_DIR)
     # Allow specifying external TBB to test with.
