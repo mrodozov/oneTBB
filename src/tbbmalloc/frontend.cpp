@@ -808,7 +808,7 @@ unsigned int getSmallObjectIndex(unsigned int size)
 {
     return (size-1)>>3;
 }
-#elif __TBB_x86_64 || __aarch64__
+#elif __TBB_x86_64 || __aarch64__ || __powerpc64__
 unsigned int getSmallObjectIndex(unsigned int size)
 {
     // For 64-bit malloc, 16 byte alignment is needed except for bin 0.
